@@ -1,13 +1,77 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root {
+  --bg-color: #FFFBF5;
+  --btn-color: #C3ACD0;
+  --container-color: #F7EFE5;
+  --btn-hover-color: #7743DB;
+  --gray-color: #777;
+  --green-color: #C6DCBA;
+  --danger-color: #D8000C;
+  --danger-hover-color: #bd0009;
+  --success-color: #4F8A10;
+  --success-hover-color: #40720b;
+  --border-radius: 8px;
+  --input-padding: 6px;
+  --box-shadow: 0 0 2px #777;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: vazir;
+  src: url("../public/assets/fonts/Vazir-FD-WOL.eot"),
+    url("../public/assets/fonts/Vazir-FD-WOL.ttf"),
+    url("../public/assets/fonts/Vazir-FD-WOL.woff"),
+    url("../public/assets/fonts/Vazir-FD-WOL.woff2");
+  font-weight: normal;
+  font-style: normal;
 }
+
+@font-face {
+  font-family: vazir;
+  src: url("../public/assets/fonts/Vazir-Bold-FD-WOL.eot"),
+    url("../public/assets/fonts/Vazir-Bold-FD-WOL.ttf"),
+    url("../public/assets/fonts/Vazir-Bold-FD-WOL.woff"),
+    url("../public/assets/fonts/Vazir-Bold-FD-WOL.woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: vazir;
+  src: url("../public/assets/fonts/Vazir-Medium-FD-WOL.eot"),
+    url("../public/assets/fonts/Vazir-Medium-FD-WOL.ttf"),
+    url("../public/assets/fonts/Vazir-Medium-FD-WOL.woff"),
+    url("../public/assets/fonts/Vazir-Medium-FD-WOL.woff2");
+  font-weight: 500;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  direction: rtl;
+  font-family: vazir;
+}
+
+/* a {
+  text-decoration: none;
+  color: inherit;
+} */
+
+html {
+  background-color: #F5F5F5;
+}
+
+
+/* .btn {
+  background-color: var(--btn-color);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  border: none;
+  padding: 6px 12px;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--btn-hover-color);
+} */

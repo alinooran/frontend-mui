@@ -2,7 +2,8 @@ import { Box, Button, Drawer, Stack, TextField } from "@mui/material";
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideMenu";
 import styled from "@emotion/styled";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AppContext } from "../context/context";
 
 const PageContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "white",

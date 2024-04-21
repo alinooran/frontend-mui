@@ -13,11 +13,12 @@ import {
   Typography,
 } from "@mui/material";
 import Input from "../components/input";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { api } from "../api/api";
 import { toast } from "react-toastify";
 import { toastOption } from "../util/util";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../context/context";
 
 const Form = styled(Stack)(({ theme }) => ({
   backgroundColor: "white",
@@ -31,6 +32,8 @@ const Form = styled(Stack)(({ theme }) => ({
   padding: "20px 0 40px 0",
   gap: 4,
 }));
+
+
 
 const Login = () => {
   const [formData, setFormData] = useState({

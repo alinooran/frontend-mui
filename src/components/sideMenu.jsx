@@ -21,6 +21,8 @@ import {
 } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
 import { MyListItemText } from "./custom";
+import { useContext } from "react";
+import { AppContext } from "../context/context";
 
 const MyList = styled(List)(({ theme }) => ({
   backgroundColor: theme.palette.primary.main,
@@ -30,6 +32,7 @@ const MyList = styled(List)(({ theme }) => ({
 
 const SideMenu = ({onMenuClose}) => {
   const theme = useTheme();
+  const {context} = useContext(AppContext);
 
   return (
     <MyList>
@@ -44,7 +47,7 @@ const SideMenu = ({onMenuClose}) => {
             <Person />
           </ListItemIcon>
           <MyListItemText
-            primary={"علی نوران"}
+            primary={context.profile.name}
             primaryTypographyProps={{ fontSize: "0.8em" }}
           />
         </Stack>

@@ -2,19 +2,18 @@ import { Box, Button, Drawer, Stack, TextField } from "@mui/material";
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideMenu";
 import styled from "@emotion/styled";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/context";
+import {api} from "../api/api";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import {toastOption} from "../util/util";
 
 const PageContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "white",
   boxShadow: "0 0 4px #AAAAAA",
   width: "70%",
   maxWidth: "1200px",
-  // display: 'felx',
-  // justifyContent: 'center',
-  // justifySelf: 'center',
-  // display: '',
-  // marginLeft: 'auto',
   [theme.breakpoints.down("sm")]: {
     width: "100%",
   },
@@ -22,6 +21,12 @@ const PageContainer = styled(Box)(({ theme }) => ({
 
 const Dashboard = () => {
   const [sideMenu, setSideMenu] = useState(false);
+  const { context, setContext } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchProfile();
+  }, []);
 
   const closeMenu = () => {
     setSideMenu(false);
@@ -29,6 +34,25 @@ const Dashboard = () => {
 
   const openMenu = () => {
     setSideMenu(true);
+  };
+
+  const fetchProfile = async () => {
+    try {
+      const res = await api.get("/user/profile");
+      setContext({ ...context, profile: res.data });
+      if (res.data.role === "security") {
+        navigate("/security");
+      } else {
+        navigate("/dashboard");
+      }
+    } catch (err) {
+      if (err.response) {
+        toast.error(err.response.data.error.message, toastOption);
+      } else {
+        toast.error("خطایی در سرور رخ داده", toastOption);
+      }
+      navigate("/login");
+    }
   };
 
   return (
@@ -53,7 +77,7 @@ const Dashboard = () => {
           <SideMenu />
         </Box>
         {/* <Stack direction={'row'} width={'80%'} justifyContent={'center'} sx={{border: '5px solid red'}}> */}
-          {/* <PageContainer>Article</PageContainer> */}
+        {/* <PageContainer>Article</PageContainer> */}
         {/* </Stack> */}
       </Stack>
     </Stack>

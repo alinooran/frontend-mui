@@ -8,6 +8,12 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useContext } from "react";
+import { AppContext } from "../context/context";
+import { api } from "../api/api";
+import { toast } from "react-toastify";
+import { toastOption } from "../util/util";
+import { useNavigate } from "react-router-dom";
 
 const Profile = styled(Box)(({ theme }) => ({
   display: "flex",
@@ -27,8 +33,23 @@ const MyIconButton = styled(IconButton)(({ theme }) => ({
   },
 }));
 
-const Navbar = ({onMenuClick}) => {
- 
+const Navbar = ({ onMenuClick }) => {
+  const { context } = useContext(AppContext);
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await api.post("/auth/logout");
+      navigate("/login");
+    } catch (err) {
+      if (err.response) {
+        toast.error(err.response.data.error.message, toastOption);
+      } else {
+        toast.error("خطایی در سرور رخ داده", toastOption);
+      }
+    }
+  };
+
   return (
     <AppBar position="sticky">
       <Toolbar>
@@ -37,10 +58,11 @@ const Navbar = ({onMenuClick}) => {
         </MyIconButton>
         <Profile>
           <Person />
-          <Typography>علی نوران</Typography>
+          <Typography>{context.profile.name}</Typography>
         </Profile>
         <Button
-        size="small"
+          onClick={handleLogout}
+          size="small"
           disableElevation
           startIcon={<Logout />}
           variant="contained"

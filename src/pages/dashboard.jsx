@@ -4,20 +4,31 @@ import SideMenu from "../components/sideMenu";
 import styled from "@emotion/styled";
 import { useState } from "react";
 
-const PageContainer = styled(Stack)({
-  backgroundColor: "skyblue",
-});
+const PageContainer = styled(Box)(({ theme }) => ({
+  backgroundColor: "white",
+  boxShadow: "0 0 4px #AAAAAA",
+  width: "70%",
+  maxWidth: "1200px",
+  // display: 'felx',
+  // justifyContent: 'center',
+  // justifySelf: 'center',
+  // display: '',
+  // marginLeft: 'auto',
+  [theme.breakpoints.down("sm")]: {
+    width: "100%",
+  },
+}));
 
-const Home = () => {
+const Dashboard = () => {
   const [sideMenu, setSideMenu] = useState(false);
 
   const closeMenu = () => {
     setSideMenu(false);
-  }
+  };
 
   const openMenu = () => {
     setSideMenu(true);
-  }
+  };
 
   return (
     <Stack height={"100vh"}>
@@ -40,12 +51,12 @@ const Home = () => {
         >
           <SideMenu />
         </Box>
-        {/* <PageContainer>
-            Article
-          </PageContainer> */}
+        {/* <Stack direction={'row'} width={'80%'} justifyContent={'center'} sx={{border: '5px solid red'}}> */}
+          {/* <PageContainer>Article</PageContainer> */}
+        {/* </Stack> */}
       </Stack>
     </Stack>
   );
 };
 
-export default Home;
+export default Dashboard;

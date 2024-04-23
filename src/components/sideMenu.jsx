@@ -35,7 +35,7 @@ const SideMenu = ({onMenuClose}) => {
   const {context} = useContext(AppContext);
 
   return (
-    <MyList>
+    <MyList sx={{width: '220px'}}>
       <ListItem
         sx={{
           display: { xs: "flex", sm: "none" },
@@ -59,8 +59,8 @@ const SideMenu = ({onMenuClose}) => {
         color={theme.palette.text.main}
         sx={{ display: { xs: "flex", sm: "none" }, margin: "0 14px" }}
       />
-      <SideMenuItem text={"خانه"} icon={<Home />} />
-      <SideMenuItem text={"ثبت درخواست جدید"} icon={<Add />} />
+      <SideMenuItem text={"خانه"} icon={<Home />} href={'/dashboard'} />
+      <SideMenuItem text={"ثبت درخواست جدید"} icon={<Add />} href={'/dashboard/addrequest'} />
       <SideMenuItem text={"مشاهده درخواست ها"} icon={<Description />} />
       <SideMenuItem text={"دریافت گزارش"} icon={<BarChart />} />
     </MyList>

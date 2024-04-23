@@ -1,12 +1,30 @@
+import DatePicker from "react-multi-date-picker";
 import styles from "./input.module.css";
+import persian_fa from "react-date-object/locales/persian_fa";
+import persian_calendar from "react-date-object/calendars/persian";
 
-const Input = ({ name, label, type, value, onChange, error, width, placeholder, disabled, labelSx, inputSx }) => {
+export const Input = ({
+  name,
+  label,
+  type,
+  value,
+  onChange,
+  error,
+  width,
+  placeholder,
+  disabled,
+  labelSx,
+  inputSx,
+  containerSx,
+}) => {
   return (
     <div
       className={styles.input_container}
-      style={{ width: width == undefined ? "100%" : width }}
+      style={{ ...containerSx, width: width == undefined ? "100%" : width }}
     >
-      <label htmlFor={name} style={labelSx}>{label}</label>
+      <label htmlFor={name} style={labelSx}>
+        {label}
+      </label>
       <input
         type={type}
         className={styles.input}
@@ -23,4 +41,24 @@ const Input = ({ name, label, type, value, onChange, error, width, placeholder, 
   );
 };
 
-export default Input;
+export const InputDate = ({ onChange, value, label, error, containerSx, width, placeholder }) => {
+  return (
+    <div
+      className={styles.input_container}
+      style={{ ...containerSx, width: width == undefined ? "100%" : width }}
+    >
+      <label htmlFor="">{label}</label>
+      <DatePicker
+        inputClass={styles.input}
+        style={{width: '100%'}}
+        locale={persian_fa}
+        calendar={persian_calendar}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+        editable={false}
+      />
+      {error && <p className={styles.error}>{error}</p>}
+    </div>
+  );
+};

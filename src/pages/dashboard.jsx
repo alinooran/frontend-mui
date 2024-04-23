@@ -1,13 +1,13 @@
-import { Box, Button, Drawer, Stack, TextField } from "@mui/material";
+import { Box, Drawer, Stack } from "@mui/material";
 import Navbar from "../components/navbar";
 import SideMenu from "../components/sideMenu";
 import styled from "@emotion/styled";
 import { useContext, useEffect, useState } from "react";
 import { AppContext } from "../context/context";
-import {api} from "../api/api";
-import { useNavigate } from "react-router-dom";
+import { api } from "../api/api";
+import { Outlet, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import {toastOption} from "../util/util";
+import { toastOption } from "../util/util";
 
 const PageContainer = styled(Box)(({ theme }) => ({
   backgroundColor: "white",
@@ -56,9 +56,9 @@ const Dashboard = () => {
   };
 
   return (
-    <Stack height={"100vh"}>
+    <Stack height={'100vh'}>
       <Navbar onMenuClick={openMenu} />
-      <Stack direction={"row"} height={"100%"}>
+      <Stack direction={"row"} sx={{flex: '1'}} spacing={0}>
         <Drawer
           open={sideMenu}
           anchor="right"
@@ -76,9 +76,9 @@ const Dashboard = () => {
         >
           <SideMenu />
         </Box>
-        {/* <Stack direction={'row'} width={'80%'} justifyContent={'center'} sx={{border: '5px solid red'}}> */}
-        {/* <PageContainer>Article</PageContainer> */}
-        {/* </Stack> */}
+        <Box sx={{ width: "100%", backgroundColor: "white", overflowY: 'auto' }}>
+          <Outlet />
+        </Box>
       </Stack>
     </Stack>
   );

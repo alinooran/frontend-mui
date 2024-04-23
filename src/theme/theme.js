@@ -4,6 +4,7 @@ const theme = createTheme({
   breakpoints: {
     values: {
       xs: 0,
+      s: 500,
       sm: 800,
       md: 900,
       lg: 1200,
@@ -25,6 +26,7 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           boxShadow: "none",
+          fontSize: "0.8em",
         },
       },
       defaultProps: {
@@ -45,9 +47,15 @@ const theme = createTheme({
   palette: {
     primary: {
       main: "#211951",
+      light: "#302475",
+      dark: "#18123b",
+      contrastText: "#F0F3FF"
     },
     secondary: {
       main: "#836FFF",
+      dark: "#644dff",
+      light: "#a799ff",
+      contrastText: "#F0F3FF"
     },
     text: {
       main: "#F0F3FF",

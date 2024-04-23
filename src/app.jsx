@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
+import AddRequest from "./pages/addRequest";
 
 const App = () => {
   return (
@@ -9,7 +10,7 @@ const App = () => {
         <Route path="/" element={<Navigate replace to="/login" />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboard" element={<Dashboard />}>
-          {/* <Route path="" /> */}
+          <Route path="addrequest" element={<AddRequest />} />
         </Route>
       </Routes>
     </BrowserRouter>

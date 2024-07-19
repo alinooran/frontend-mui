@@ -16,10 +16,12 @@ export const Th = styled(TableCell)(({ theme }) => ({
   padding: "0.4em",
   fontWeight: "bold",
   fontSize: "0.9em",
+  border: "none",
 }));
 
 export const Td = styled(TableCell)(({ theme }) => ({
   textAlign: "right",
   padding: "0.4em",
   fontSize: "0.9em",
+  borderBottom: "none",
 }));

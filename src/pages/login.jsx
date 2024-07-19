@@ -1,7 +1,7 @@
 import { useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Button, Stack, Typography } from "@mui/material";
-import { Input } from "../components/input";
+import Input from "../components/input";
 import { useState } from "react";
 import { api } from "../api/api";
 import { toast } from "react-toastify";
@@ -9,16 +9,16 @@ import { toastOption } from "../util/util";
 import { useNavigate } from "react-router-dom";
 
 const Form = styled(Stack)(({ theme }) => ({
-  backgroundColor: "white",
+  // backgroundColor: "white",
   width: "30%",
   minWidth: "300px",
   maxWidth: "500px",
   margin: "60px auto 0 auto",
   alignItems: "center",
-  boxShadow: "0 0 4px #AAAAAA",
-  borderRadius: "4px",
+  // boxShadow: "0 0 4px #AAAAAA",
+  // borderRadius: "4px",
   padding: "20px 0 40px 0",
-  gap: 4,
+  // gap: 4,
 }));
 
 const Login = () => {
@@ -63,9 +63,14 @@ const Login = () => {
 
   return (
     <Form>
-      <Typography variant="h4" color={theme.palette.primary.main}>
-        ورود به سامانه
-      </Typography>
+      <img
+        src="/assets/icons/login.svg"
+        width="96px"
+        style={{
+          filter:
+            "invert(52%) sepia(53%) saturate(5886%) hue-rotate(227deg) brightness(105%) contrast(101%)",
+        }}
+      />
       <Input
         width={"80%"}
         labelSx={labelStyle}
@@ -74,6 +79,7 @@ const Login = () => {
         name={"username"}
         value={formData.username}
         onChange={handleInput}
+        containerSx={{margin: "32px 0 16px 0"}}
       />
       <Input
         width={"80%"}
@@ -88,7 +94,7 @@ const Login = () => {
         direction={"row"}
         alignItems={"center"}
         alignSelf={"flex-start"}
-        marginRight={"10%"}
+        sx={{margin: "8px 10% 16px 10%"}}
       >
         <input
           type="checkbox"

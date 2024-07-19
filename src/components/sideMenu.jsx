@@ -30,12 +30,12 @@ const MyList = styled(List)(({ theme }) => ({
   height: "100%",
 }));
 
-const SideMenu = ({onMenuClose}) => {
+const SideMenu = ({ onMenuClose }) => {
   const theme = useTheme();
-  const {context} = useContext(AppContext);
+  const { context } = useContext(AppContext);
 
   return (
-    <MyList sx={{width: '220px'}}>
+    <MyList sx={{ width: "220px" }}>
       <ListItem
         sx={{
           display: { xs: "flex", sm: "none" },
@@ -51,7 +51,10 @@ const SideMenu = ({onMenuClose}) => {
             primaryTypographyProps={{ fontSize: "0.8em" }}
           />
         </Stack>
-        <IconButton onClick={onMenuClose} sx={{ margin: -1, color: theme.palette.text.main }}>
+        <IconButton
+          onClick={onMenuClose}
+          sx={{ margin: -1, color: theme.palette.text.main }}
+        >
           <ArrowBack />
         </IconButton>
       </ListItem>
@@ -59,10 +62,18 @@ const SideMenu = ({onMenuClose}) => {
         color={theme.palette.text.main}
         sx={{ display: { xs: "flex", sm: "none" }, margin: "0 14px" }}
       />
-      <SideMenuItem text={"خانه"} icon={<Home />} href={'/dashboard'} />
-      <SideMenuItem text={"ثبت درخواست جدید"} icon={<Add />} href={'/dashboard/addrequest'} />
-      <SideMenuItem text={"مشاهده درخواست ها"} icon={<Description />} />
-      <SideMenuItem text={"دریافت گزارش"} icon={<BarChart />} />
+      <SideMenuItem text={"خانه"} icon={<Home />} href={"/dashboard"} />
+      <SideMenuItem
+        text={"ثبت درخواست جدید"}
+        icon={<Add />}
+        href={"/dashboard/addrequest"}
+      />
+      <SideMenuItem
+        text={"مشاهده درخواست ها"}
+        icon={<Description />}
+        href={"/dashboard/requests"}
+      />
+      <SideMenuItem text={"دریافت گزارش"} href={"/dashboard/report"} icon={<BarChart />} />
     </MyList>
   );
 };

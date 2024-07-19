@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --bg-color: #FFFBF5;
   --btn-color: #C3ACD0;
   --container-color: #F7EFE5;
@@ -12,7 +12,7 @@
   --border-radius: 8px;
   --input-padding: 6px;
   --box-shadow: 0 0 2px #777;
-}
+} */
 
 @font-face {
   font-family: vazir;
@@ -58,6 +58,5 @@ a {
 }
 
 html {
-  background-color: #F5F5F5;
   height: 100vh;
 }

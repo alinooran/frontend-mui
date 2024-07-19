@@ -17,7 +17,7 @@ const SideMenuItem = ({ text, icon, href }) => {
   return (
     <ListItem disableGutters disablePadding sx={{ paddingLeft: 4 }}>
       <Link to={href}>
-        <ListItemButton disableRipple>
+        <ListItemButton sx={{"&:hover": {backgroundColor: "transparent"}}} disableRipple>
           <ListItemIcon sx={{ color: theme.palette.text.main }}>
             {icon}
           </ListItemIcon>

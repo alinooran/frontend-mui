@@ -14,15 +14,16 @@ import { api } from "../api/api";
 import { toast } from "react-toastify";
 import { toastOption } from "../util/util";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@emotion/react";
 
 const Profile = styled(Box)(({ theme }) => ({
-  display: "flex",
+  // display: "flex",
   gap: 8,
   alignItems: "center",
   color: theme.palette.text.main,
-  [theme.breakpoints.down("sm")]: {
-    display: "none",
-  },
+  // [theme.breakpoints.down("sm")]: {
+  //   display: "none",
+  // },
 }));
 
 const MyIconButton = styled(IconButton)(({ theme }) => ({
@@ -36,6 +37,7 @@ const MyIconButton = styled(IconButton)(({ theme }) => ({
 const Navbar = ({ onMenuClick }) => {
   const { context } = useContext(AppContext);
   const navigate = useNavigate();
+  const theme = useTheme();
 
   const handleLogout = async () => {
     try {
@@ -53,10 +55,23 @@ const Navbar = ({ onMenuClick }) => {
   return (
     <AppBar position="sticky">
       <Toolbar>
-        <MyIconButton onClick={onMenuClick}>
-          <Menu fontSize="large" />
-        </MyIconButton>
-        <Profile>
+        {context.profile.role !== "security" ? (
+          <MyIconButton onClick={onMenuClick}>
+            <Menu fontSize="large" />
+          </MyIconButton>
+        ) : (
+          ""
+        )}
+        <Profile
+          sx={
+            context.profile.role === "security"
+              ? { display: "flex" }
+              : {
+                  display: "flex",
+                  [theme.breakpoints.down("sm")]: { display: "none" },
+                }
+          }
+        >
           <Person />
           <Typography>{context.profile.name}</Typography>
         </Profile>

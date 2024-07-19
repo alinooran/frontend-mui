@@ -14,7 +14,7 @@ import {
   TableRow,
   Typography,
 } from "@mui/material";
-import { Input, InputDate } from "../components/input";
+import Input from "../components/input";
 import { useTheme } from "@emotion/react";
 import {
   ArrowBackIos,
@@ -30,18 +30,9 @@ import { toastOption } from "../util/util";
 import { Td, Th, Tr } from "../components/custom";
 import gregorian_en from "react-date-object/locales/gregorian_en";
 import gregorian_calendar from "react-date-object/calendars/gregorian";
+import MyPagination from "../components/pagination";
+import Container from "../components/common/container";
 
-const Container = styled(Stack)(({ theme }) => ({
-  width: "100%",
-  padding: "0 1em",
-  [theme.breakpoints.up("sm")]: {
-    width: "75%",
-    minWidth: "580px",
-    maxWidth: "1200px",
-    alignItems: "center",
-    padding: "0 2em",
-  },
-}));
 
 const Top = styled(Stack)(({ theme }) => ({
   width: "100%",
@@ -59,7 +50,7 @@ const Top = styled(Stack)(({ theme }) => ({
 
 const Guest = styled(Stack)(({ theme }) => ({
   padding: "12px 5%",
-  border: "1px solid black",
+  border: "1px solid #BBBBBB",
   width: "100%",
   position: "relative",
   gap: "18px",
@@ -208,7 +199,8 @@ const AddRequest = () => {
   return (
     <Container>
       <Top>
-        <InputDate
+        <Input
+          type="date"
           label={"تاریخ"}
           error={errors.date}
           width="30%"
@@ -334,19 +326,9 @@ const AddRequest = () => {
           <TableFooter>
             <Tr>
               <Td colSpan={6}>
-                <Pagination
-                  color="secondary"
-                  count={Math.ceil(guests.length / itemPerPage)}
-                  page={currentPage}
-                  onChange={handlePageChange}
-                  shape="rounded"
-                  renderItem={(item) => (
-                    <PaginationItem
-                      slots={{ previous: ArrowForwardIos, next: ArrowBackIos }}
-                      {...item}
-                    />
-                  )}
-                />
+                <MyPagination pageCount={Math.ceil(guests.length / itemPerPage)}
+                currentPage={currentPage}
+                onPageChange={handlePageChange} />
               </Td>
             </Tr>
           </TableFooter>

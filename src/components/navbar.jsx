@@ -53,7 +53,7 @@ const Navbar = ({ onMenuClick }) => {
   };
 
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" sx={{"@media print": {display: "none"}}}>
       <Toolbar>
         {context.profile.role !== "security" ? (
           <MyIconButton onClick={onMenuClick}>

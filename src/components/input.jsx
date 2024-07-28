@@ -88,7 +88,7 @@ const Input = ({
           style={inputSx}
         />
       ) : type === "select" ? (
-        <select onChange={onChange} className={styles.input} style={inputSx}>
+        <select disabled={disabled} onChange={onChange} className={styles.input} style={inputSx}>
           {options.map((o, i) => (
             <option key={i} value={o.value}>{o.title}</option>
           ))}

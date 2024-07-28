@@ -73,7 +73,16 @@ const SideMenu = ({ onMenuClose }) => {
         icon={<Description />}
         href={"/dashboard/requests"}
       />
-      <SideMenuItem text={"دریافت گزارش"} href={"/dashboard/report"} icon={<BarChart />} />
+      {context.profile.role === "dean" ||
+      context.profile.role === "securityDean" ? (
+        <SideMenuItem
+          text={"دریافت گزارش"}
+          href={"/dashboard/report"}
+          icon={<BarChart />}
+        />
+      ) : (
+        ""
+      )}
     </MyList>
   );
 };

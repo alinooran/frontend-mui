@@ -91,7 +91,8 @@ const Requests = () => {
     useModal(setRequest);
   const [deleteModal, openDeleteModal, closeDeleteModal] = useModal(setRequest);
   const [guestModal, openGuestModal, closeGuestModal] = useModal(setRequest);
-  const [closeRequestModal, openCloseRequestModal, closeCloseRequestModal] = useModal(setRequest);
+  const [closeRequestModal, openCloseRequestModal, closeCloseRequestModal] =
+    useModal(setRequest);
   const itemPerPage = 15;
 
   useEffect(() => {
@@ -107,10 +108,20 @@ const Requests = () => {
       },
     ];
     if (role === "dean" || role === "securityDean") {
-      options.push({
-        value: "forApproval",
-        title: "در انتظار تایید",
-      });
+      options.push(
+        {
+          value: "forApproval",
+          title: "در انتظار تایید",
+        },
+        {
+          value: "approved",
+          title: "تایید کرده",
+        },
+        {
+          value: "disapproved",
+          title: "رد کرده",
+        }
+      );
     }
     setCategoryOptions(options);
   }, []);
@@ -276,7 +287,7 @@ const Requests = () => {
                           : "رد شده"}
                       </Td>
                       <Td>
-                        {r.sent === false ? (
+                        {r.sent === false && context.profile.id === r.user_id ? (
                           <>
                             <Tooltip title="ارسال با توضیحات">
                               <MyIconButton

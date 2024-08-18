@@ -335,11 +335,11 @@ const Report = () => {
           "@media print": { display: "block" },
         }}
       >
-        <Box sx={{ width: "100%" }}>
+        <Box sx={{ width: "100%", display: "flex", alignItems: "center", flexDirection: "column" }}>
           <Stack
             direction="row"
             justifyContent="space-between"
-            sx={{ marginTop: "2em" }}
+            sx={{ marginTop: "2em", width: "100%" }}
           >
             <h4>تاریخ: {date.date_jalali}</h4>
             <h4>نام بخش: {department.title}</h4>
@@ -348,7 +348,7 @@ const Report = () => {
           <Stack
             direction="row"
             justifyContent="space-between"
-            sx={{ marginTop: "2em" }}
+            sx={{ marginTop: "2em", width: "100%" }}
           >
             <h4>
               وضعیت مراجعه:{" "}
@@ -360,7 +360,7 @@ const Report = () => {
             </h4>
             <h4>نام میزبان: {host}</h4>
           </Stack>
-          <TableContainer sx={{ width: "100%", margin: "2em 0" }}>
+          <TableContainer sx={{ width: "100%", margin: "2em 1em", minWidth: "A4", maxWidth: "A0" }}>
             <Table>
               <TableHead>
                 <Tr>

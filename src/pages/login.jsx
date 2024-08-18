@@ -9,16 +9,12 @@ import { toastOption } from "../util/util";
 import { useNavigate } from "react-router-dom";
 
 const Form = styled(Stack)(({ theme }) => ({
-  // backgroundColor: "white",
   width: "30%",
   minWidth: "300px",
   maxWidth: "500px",
   margin: "60px auto 0 auto",
   alignItems: "center",
-  // boxShadow: "0 0 4px #AAAAAA",
-  // borderRadius: "4px",
   padding: "20px 0 40px 0",
-  // gap: 4,
 }));
 
 const Login = () => {

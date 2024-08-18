@@ -56,9 +56,9 @@ const Dashboard = () => {
   };
 
   return (
-    <Stack height={'100vh'}>
+    <Stack height={"100vh"}>
       <Navbar onMenuClick={openMenu} />
-      <Stack direction={"row"} sx={{flex: '1'}} spacing={0}>
+      <Stack direction={"row"} sx={{ flex: "1" }} spacing={0}>
         <Drawer
           open={sideMenu}
           anchor="right"
@@ -76,7 +76,9 @@ const Dashboard = () => {
         >
           <SideMenu />
         </Box>
-        <Box sx={{ width: "100%", backgroundColor: "white", overflowY: 'auto' }}>
+        <Box
+          sx={{ width: "100%", backgroundColor: "white", overflowY: "auto" }}
+        >
           <Outlet />
         </Box>
       </Stack>

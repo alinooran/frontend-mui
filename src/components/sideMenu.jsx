@@ -35,7 +35,7 @@ const SideMenu = ({ onMenuClose }) => {
   const { context } = useContext(AppContext);
 
   return (
-    <MyList sx={{ width: "220px" }}>
+    <MyList sx={{ width: "220px", "@media print": { display: "none" } }}>
       <ListItem
         sx={{
           display: { xs: "flex", sm: "none" },
